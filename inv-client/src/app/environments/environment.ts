@@ -5,15 +5,16 @@
 export const environment = {
   production: false,
   adalConfig: {
-    tenant: 'truenorth.co.in',
-    clientId: '82a27711-b598-46d5-b5c8-8bd0e0c157ef',
-    postLogoutRedirectUri: 'http://inv-dev.truenorth.co.in/logout',
+    tenant: 'localhost',
+    clientId: '4de24a49-50a9-463f-abdd-0e0a78f4b8db',
+    postLogoutRedirectUri: 'http://localhost:3500/logout',
     endpoints: {
-      'http://inv-dev.truenorth.co.in': '82a27711-b598-46d5-b5c8-8bd0e0c157ef'
+      'http://localhost:3500': '4de24a49-50a9-463f-abdd-0e0a78f4b8db'
     },
   },
-  apiUrl: 'http://inv-dev.truenorth.co.in/api',
-  openApiUrl: 'http://inv-dev.truenorth.co.in/open/api'
+  apiUrl: 'http://localhost:3500/api',
+  openApiUrl: 'http://localhost:3500/open/api',
+  clientId:'793e81da-af47-414a-a2c9-5e4b32e767f7'
 };
 
 /*
