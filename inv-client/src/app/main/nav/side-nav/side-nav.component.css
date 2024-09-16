@@ -1,0 +1,29 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover, a:active{
+  color: lightgray;
+}
+
+.nav-caption{
+  display: inline-block;
+  padding-left: 6px;
+}
+
+.mat-list-item:focus {
+  background: none;
+}
+.mat-expansion-panel {
+  box-shadow: none;
+}
+.mat-expansion-panel-spacing {
+  margin: 0px 0px;
+}
+.mat-expansion-panel-header {
+  padding: 0px 16px;  
+}
+.mat-expansion-panel-header-title {
+  line-height: 24px;
+}

@@ -1,0 +1,11 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav role="navigation">
+    <app-side-nav (sidenavClose)="sidenav.close()" [userInfo]="dataSvc.userInfo"></app-side-nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-top-nav [ngClass]="dataSvc.mainClass()" (sidenavToggle)="sidenav.toggle()" [userInfo]="dataSvc.userInfo"></app-top-nav>
+    <main [ngClass]="dataSvc.mainClass()">
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

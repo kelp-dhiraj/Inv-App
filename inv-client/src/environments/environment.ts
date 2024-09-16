@@ -1,0 +1,27 @@
+// This file can be replaced during build by using the `fileReplacements` array.
+// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
+// The list of file replacements can be found in `angular.json`.
+
+export const environment = {
+  production: false,
+  adalConfig: {
+    tenant: 'localhost',
+    clientId: '82a27711-b598-46d5-b5c8-8bd0e0c157ef',
+    postLogoutRedirectUri: 'http://localhost:3500/logout',
+    endpoints: {
+      'http://localhost:3500': '82a27711-b598-46d5-b5c8-8bd0e0c157ef'
+    },
+  },
+  apiUrl: 'http://localhost:3500/api',
+  clientId:'793e81da-af47-414a-a2c9-5e4b32e767f7',
+  openApiUrl: 'http://localhost:3500/open/api'
+};
+
+/*
+ * For easier debugging in development mode, you can import the following file
+ * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
+ *
+ * This import should be commented out in production mode because it will have a negative impact
+ * on performance if an error is thrown.
+ */
+// import 'zone.js/dist/zone-error';  // Included with Angular CLI.

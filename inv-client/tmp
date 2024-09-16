@@ -1,0 +1,23 @@
+{
+    "host": "yms.westeurope.cloudapp.azure.com",
+    "port": 22,
+    "username": "think360",
+    "protocol": "sftp",
+    "privateKeyPath": "C:/WORK/AD/NodeJS/t3/keys/id_rsa",
+    "remotePath": "/home/think360/projects/",
+    "uploadOnSave": false,
+    "syncMode": "update",
+    "watcher": {
+        "files": false,
+        "autoUpload": true,
+        "autoDelete": true
+    },
+    "ignore": [
+        "**/.vscode",
+        "**/.git",
+        "**/.DS_Store",
+        "**/.sftpConfig.json"
+    ]
+}
+
+

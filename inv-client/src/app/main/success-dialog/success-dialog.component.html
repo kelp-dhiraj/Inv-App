@@ -1,0 +1,16 @@
+<div mat-dialog-title style="display: flex; justify-content: center; padding: 10px 0px;">
+  <span class="text-16 text-black text-bold">SUCCESS!</span>
+</div>
+<div mat-dialog-content >
+  <div style="display: flex; justify-content: center; padding: 30px"><img src="assets/img/Image_Success.svg"></div>
+  <div class="text-center" style="display: flex; justify-content: center; padding: 30px">{{data.message}}</div>
+</div>
+<div mat-dialog-actions style="display: block;">
+  <div style="display: flex; justify-content: center; padding: 20px">
+    <button *ngIf="data.mode == 'SUBMIT'" mat-raised-button class="rounded-button primary" (click)="onOkClick()">OK</button>
+    <button *ngIf="(data.mode == 'APPROVED' ||data.mode == 'REJECTED') && data.nextRoute" mat-raised-button class="rounded-button primary" (click)="onNextClick()">NEXT</button>
+  </div>
+  <div *ngIf="data.mode == 'APPROVED' || data.mode == 'REJECTED'" style="display: flex; justify-content: center; padding: 20px">
+    <button  mat-button class="text-grey" (click)="onBackClick()">BACK TO HOME PAGE</button>
+  </div>
+</div>

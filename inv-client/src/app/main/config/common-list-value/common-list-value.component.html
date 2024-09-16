@@ -1,0 +1,72 @@
+<mat-card class="tn-table-card" >
+  <app-table-toolbar [title]="'Lists'" [buttons]="{}" [selectedId] = "pSelectedId" (toolbarAction)="toolbarActionParent($event)"></app-table-toolbar>
+  <mat-card-content class="tn-table-card-content" style="height:calc(40% - 64px)">
+    <table mat-table [dataSource]="pDataSource" matSort #pSort="matSort" >
+      <ng-container matColumnDef="lookup_code">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> List Code </th>
+        <td mat-cell *matCellDef="let element; let index = index" > 
+          {{ element.lookup_code }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="lookup_value">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> List Name </th>
+        <td mat-cell *matCellDef="let element; let index = index" > 
+          {{ element.lookup_value }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="lookup_description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+        <td mat-cell *matCellDef="let element; let index = index">
+          {{ element.lookup_description }}
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="pDisplayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: pDisplayedColumns;"
+      [ngClass]="{'tn-table-row-highlight': pSelectedId == row.id}"
+      (click)="highlightParent(row)"
+      ></tr>
+    </table>
+  </mat-card-content>
+  <app-table-toolbar [title]="'Values'" [buttons]="{create:'default',edit:'default'}" [selectedId] = "cSelectedId" (toolbarAction)="toolbarActionChild($event)"></app-table-toolbar>
+  <mat-card-content class="tn-table-card-content" style="height:calc(60% - 64px)">
+    <table mat-table [dataSource]="cDataSource" matSort #cSort="matSort" >
+      <ng-container matColumnDef="lookup_code">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Code </th>
+        <td mat-cell *matCellDef="let element; let index = index">
+          {{ element.lookup_code }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="lookup_value">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Value </th>
+        <td mat-cell *matCellDef="let element; let index = index">
+          {{ element.lookup_value }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="lookup_description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+        <td mat-cell *matCellDef="let element; let index = index">
+          {{ element.lookup_description }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="enabled">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Enabled? </th>
+        <td mat-cell *matCellDef="let element; let index = index">
+          <mat-checkbox color="primary" [checked]="element.enabled" disabled></mat-checkbox>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="display_order">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Display Order </th>
+        <td mat-cell *matCellDef="let element; let index = index">
+          {{element.display_order}}
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="cDisplayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: cDisplayedColumns;"
+      [ngClass]="{'tn-table-row-highlight': cSelectedId == row.id}"
+      (click)="highlightChild(row)"
+      ></tr>
+    </table>
+  </mat-card-content>
+</mat-card>
+
+  

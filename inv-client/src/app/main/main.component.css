@@ -1,0 +1,9 @@
+.navbar-brand {
+  background-image: url(https://truenorth.co.in/images/logo.png);
+  width: 100px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+main { padding: 24px }

@@ -1,0 +1,14 @@
+.mat-column-list_code, 
+.mat-column-lookup_code {
+  width:30%;
+}
+
+.mat-column-list_name,
+.mat-column-lookup_value,
+.mat-column-description {
+  width:30%;
+}
+
+.mat-column-enabled{
+  width: 10%;
+}

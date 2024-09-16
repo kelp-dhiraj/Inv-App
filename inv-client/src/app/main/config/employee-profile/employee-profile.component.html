@@ -1,0 +1,78 @@
+<mat-card class="tn-form-card" style="height: 100%">
+  <mat-toolbar class="tn-form-toolbar">
+    <span class="tn-form-title">Employee Details</span>    
+  </mat-toolbar>
+  <mat-card-content class="tn-form-card-content">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="tn-form-main" >
+      <div>
+        <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutAlign="flex-start">
+          <div fxFlex="0 1 calc(50% - 10px)" fxFlex.lt-md="0 1 100%">
+            <mat-form-field style="width: 100%">
+                <input matInput formControlName="full_name" placeholder="Full Name" autocomplete="off">
+                <mat-error>Full Name is Required</mat-error>
+            </mat-form-field>
+            <mat-form-field style="width: 100%">
+              <input matInput formControlName="email" placeholder="Email" autocomplete="off">
+              <mat-error>A valid Email is Required</mat-error>
+            </mat-form-field>
+            <mat-form-field style="width: 100%">
+                <mat-select formControlName="supervisor_emp_id" placeholder="Supervisor">
+                  <mat-option *ngFor="let item of persons$ | async" [value]="item.id">{{item.full_name}}</mat-option>
+                </mat-select>
+                <mat-error>Supervisor is required</mat-error>
+              </mat-form-field>
+              <mat-form-field style="width: 100%">
+                <mat-select formControlName="hr_emp_id" placeholder="HR">
+                  <mat-option *ngFor="let item of persons$ | async" [value]="item.id">{{item.full_name}}</mat-option>
+                </mat-select>
+                <mat-error>HR Manager is required</mat-error>
+              </mat-form-field>
+              <mat-form-field style="width: 100%">
+                <mat-select formControlName="designation_code" placeholder="Designation Code">
+                  <mat-option *ngFor="let item of designationCode$ | async" [value]="item.lookup_code">{{item.lookup_value}}</mat-option>
+                </mat-select>
+                <mat-error>Designation Code is Required</mat-error>
+              </mat-form-field>
+              <mat-form-field style="width: 100%">
+                <mat-select formControlName="department_code" placeholder="Department Code">
+                  <mat-option *ngFor="let item of departmentCodes$ | async" [value]="item.lookup_code">{{item.lookup_value}}</mat-option>
+                </mat-select>
+                <mat-error>Department Code is Required</mat-error>
+              </mat-form-field>
+          </div>
+          <div fxFlex="0 1 calc(50% - 10px)" fxFlex.lt-md="0 1 100%">
+            <div style="width: 100%;display: flex; align-items: center; justify-content: center">
+              <div style="align-items: center; display: flex; justify-content: center; width: 200px; height: 200px; border-radius: 100px; margin: auto; background-color: #ccc; position: relative; overflow: hidden; ">
+                <img *ngIf="profilePic" #img [src]="profilePic" style="max-width: 196px; max-height: 196px" [ngStyle]="{width: defaultPic ? '196px' : ''}">
+                <div *ngIf="!profilePic" class="text-black" style="font-size: 100px">{{initials()}}</div>
+              </div>
+            </div>
+            <!--div style="width: 100%; text-align: center; padding: 20px;">
+              <button mat-stroked-button color="basic" *ngIf="picUpdated" style="margin-right: 10px;" type="button" matTooltip="Revert to old picture" (click)="revertPicture()">
+                <mat-icon>undo</mat-icon>
+              </button>
+              <button mat-stroked-button color="basic" style="margin-right: 10px;" type="button"  matTooltip="Upload New Profile Picture" (click)="openBrowser()">
+                <mat-icon>arrow_upward</mat-icon>
+              </button>
+              <button mat-stroked-button color="basic" type="button" matTooltip="Delete Profile Picture" (click)="deletePicture()">
+                <mat-icon>cancel</mat-icon>
+              </button>
+              <input #file type="file" style="opacity: 0; width: 0px; height: 0px;" (change)="onFileSelected()">
+            </div-->
+          </div>
+
+        </div>
+        <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutAlign="flex-start" style="padding: 20px 0px">        
+          <div fxFlex="0 1 100%" fxFlex.lt-md="0 1 100%" *ngIf="admin">
+              <span class="tn-inline-checkbox-heading">Role</span>  
+              <mat-checkbox color="primary" class="tn-inline-checkbox" formControlName="is_admin">Administrator</mat-checkbox>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="admin">          
+        <button mat-raised-button color="primary" style="margin-right: 20px">Save</button>
+        <button mat-raised-button color="basic" type="button" (click)="onCancelClick()">Cancel</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

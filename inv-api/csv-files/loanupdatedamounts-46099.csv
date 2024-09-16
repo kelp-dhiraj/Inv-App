@@ -1,0 +1,9 @@
+company name, user name, bank name, loan name, updated at, sanction amt, , sanction amt (million), sanction date, loan remaining amt date, updated by user 
+SJP1,S P,ICICI Bank,SJP4,2019-08-07,,220000000,,2019-05-15,2019-08-07,false
+SJP1,S P,State Bank of India,SJP2,2019-08-07,,5000000,,2019-05-15,2019-08-07,false
+SJP1,S P,ICICI Bank,SJP3,2019-08-07,,550000000,,2019-08-09,2019-08-07,false
+SJP1,S P,HDFC Bank,SJP1,2019-08-07,,200000,,2019-08-01,2019-08-07,true
+GPD Company 1-3-5,guru dmc 1,HDFC Bank,SJP,2019-08-06,,1,,2019-07-01,2019-06-01,false
+GPD Company 1-3-5,guru dmc 1,Axis Bank,Test 01,2019-08-06,,1,,2019-08-01,2019-06-01,false
+GPD Company 1-3-5,guru dmc 1,ICICI Bank,sjp 1 Loan 1,2019-08-06,,1,,2019-07-01,2019-06-01,false
+GPD Company 1-3-5,guru dmc 1,ICICI Bank,l1,2019-08-06,,,,,2019-06-01,false

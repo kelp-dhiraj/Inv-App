@@ -1,0 +1,24 @@
+<mat-toolbar class="tn-table-toolbar">
+  <span class="tn-table-title">{{ title }}</span>
+  <span class="tn-spacer"></span>
+  <button *ngFor="let b of buttonsArray" 
+    mat-button color="{{b.color?b.color:'basic'}}" 
+    title="{{b.label}}"
+    (click)="onClick(b.event)" 
+    [disabled]="isDisabled(b.event)"
+  >
+    <mat-icon class="mat-18">{{b.icon}}</mat-icon><span>{{b.label}}</span>
+  </button>
+  <!-- <mat-form-field class="tn-text-filter" appearance="legacy">
+    <mat-label>Filter</mat-label>
+    <mat-icon matPrefix>search</mat-icon>
+    <input matInput type="text" (keyup)="onKeyUp($event.target.value)" placeholder="type to filter results..." autocomplete="off">
+  </mat-form-field> -->
+  <!--button 
+  mat-button color="basic" 
+  title="Export"
+  (click)="onClick('export')"
+>
+  <mat-icon class="mat-18">cloud_download</mat-icon><span> Export</span>
+</button-->
+</mat-toolbar>

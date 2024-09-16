@@ -1,0 +1,53 @@
+<mat-toolbar color="basic" style="background: #252536;color: #c3c3c3;">
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSidenavClick()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div routerLink="/" class="tn-logo" style="cursor: pointer"></div>
+  <div routerLink="/"  style="cursor: pointer">Investor Relations</div>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+    <ul fxLayout fxLayoutGap="5px" class="navigation-items" style="align-items: center;">
+      <li style="padding-right: 20px">
+        <button mat-button routerLink="/">
+          <mat-icon>home</mat-icon>
+          <div style="display: inline-block; height: 40px; line-height: 40px" >HOME</div>
+        </button>
+      </li>
+      <li style="padding-right: 20px">
+        <button mat-button routerLink="/dashboard/prospect">
+          <mat-icon>dashboard</mat-icon>
+          <div style="display: inline-block; height: 40px; line-height: 40px" >DASHBOARD</div>
+        </button>
+      </li>
+     
+      <li style="padding-right: 20px">
+        <button mat-button [matMenuTriggerFor]="reports">
+          <mat-icon>list</mat-icon>
+          <div style="display: inline-block; height: 40px; line-height: 40px" >REPORTS</div>
+        </button>
+        <mat-menu #reports="matMenu">
+          <button mat-menu-item [routerLink]="['/reports','prospectsreport']"><mat-icon>list</mat-icon>Prospects Report</button>
+          <button mat-menu-item [routerLink]="['/reports','investorsreport']"><mat-icon>list</mat-icon>Existing Investors Report</button>
+        </mat-menu>
+      </li>
+      <li style="padding-right: 20px" >
+        <button mat-button [matMenuTriggerFor]="config">
+          <mat-icon>settings</mat-icon>
+          <div style="display: inline-block; height: 40px; line-height: 40px" >ADMIN</div>
+        </button>
+        <mat-menu #config="matMenu">
+          <button mat-menu-item [routerLink]="['/configs','commonlistvalues']"><mat-icon>settings</mat-icon>Common List Values</button>
+          <button mat-menu-item [routerLink]="['/importdata','list']"><mat-icon>settings</mat-icon>Upload</button>
+        </mat-menu>
+  
+      </li>
+      <!-- <li  style="padding-right: 20px">
+        <div style="display: inline-block; font-size: 14px; height: 40px; line-height: 40px; text-transform: uppercase;" matTooltip="Signed in as {{ userInfo?.full_name }}">{{ userInfo?.full_name }}</div>
+      </li>
+      <li>
+        <button mat-icon-button (click)="logout()"><mat-icon>logout</mat-icon></button>
+      </li> -->
+    </ul>
+  </div>
+</mat-toolbar>

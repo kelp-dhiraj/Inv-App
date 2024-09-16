@@ -1,0 +1,58 @@
+tr.mat-row {
+  height: 24px;
+  
+}
+tr.mat-header-row {
+  height: 36px;
+  background: #3b3d3f;
+}
+th.mat-header-cell {
+	color: #FFF;
+	padding: 10px 10px;
+}
+.mat-cell, .mat-footer-cell { 
+	font-size: 13px;
+	padding: 5px 10px !important;
+}
+.mat-footer-cell {
+  font-size: 13px;
+  font-weight: bold;
+  background: #eee;
+  border-bottom: none;
+}
+.mat-header-cell { 
+	font-size: 13px;
+	padding: 5px 10px !important;
+}
+
+th.sor-plus {
+  background-color: #fff;
+  border: none;
+}
+td.sor-plus {
+  background-color: #fff;
+  border: none;
+}
+.tn-logo {
+  background-image: url(https://truenorth.co.in/images/logo.png);
+  width: 100px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 10px; 
+}
+tr.mat-footer-row {
+  height: 36px;
+}
+td.sor-avg, td.sor-avglabel, td.sor-avgfill { background: #fff }
+td.sor-avg>div { text-align: center; border: 1px solid #ccc; padding: 2px 5px }
+
+.qualified-table .mat-row:nth-child(1) .mat-cell,
+.qualified-table .mat-row:nth-child(2) .mat-cell,
+.qualified-table .mat-row:nth-child(3) .mat-cell {
+  color: red !important;
+}
+.qualified-table .mat-row:nth-child(4) .mat-cell,
+.qualified-table .mat-row:nth-child(5) .mat-cell {
+  color: green !important;
+}

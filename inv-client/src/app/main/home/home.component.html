@@ -1,0 +1,5 @@
+<div style="padding: 5px 0px; text-align: center">
+  <pa-sliding-radio (change)="onChange($event)" width="120" [buttons]="toggleButtons" [value]="toggleValue" style="font-size: 12px"></pa-sliding-radio>
+</div>
+<app-prospect *ngIf="mode == 'prospect'" (change)="dataChanged($event)"></app-prospect>
+<app-investor *ngIf="mode == 'investor'" (change)="dataChanged($event)"></app-investor>

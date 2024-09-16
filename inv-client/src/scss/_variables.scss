@@ -1,0 +1,148 @@
+
+///_global.scss
+$font-family: 'Nunito Sans', Arial, Helvetica, sans-serif;
+$body-bg: #f7f7f7;
+
+///_fullpage-popup.scss
+
+//popup-header
+$fullpage-popup-section-popup-header-color: #8a8a8a;
+$fullpage-popup-section-popup-header-border-color: #e6e6e6;
+$fullpage-popup-section-popup-header-bg: #fff;
+
+//popup-title
+$fullpage-popup-section-popup-title-font-size: 22px;
+$fullpage-popup-section-popup-title-color: #2d2d2d;
+$fullpage-popup-section-popup-title-bg: #fff;
+
+//popup-body
+$fullpage-popup-section-bg: #f7f7f7;
+$fullpage-popup-section-box-shadow: rgb(234, 234, 234);
+$fullpage-popup-section-body-content-font-size: 16px;
+$fullpage-popup-section-body-content-text-color: #2d2d2d;
+$fullpage-popup-section-body-content-card-label-font-size: 14px;
+$fullpage-popup-section-body-content-card-label-color: #8a8a8a;
+
+///_material-form.scss
+//label
+$mat-form-field-label-size: 18px;
+$mat-form-field-label-color: #8a8a8a;
+$mat-form-field-label-error-color: #f36c6e;
+$mat-form-field-underline-bg: #979797;
+$mat-form-field-label-color-focused: #65a2f7;
+$mat-form-field-underline-bg-focused: #65a2f7;
+$mat-form-field-underline-error-bg: rgba(#f36c6e, .2);
+
+//radio
+$mat-radio-outer-circle-border-color: #c4c4c4;
+$mat-radio-inner-circle-bg: #c4c4c4;
+$mat-radio-outer-circle-border-color-checked: #65a2f7;
+$mat-radio-inner-circle-bg-checked: #65a2f7;
+
+//button
+$mat-flat-button-font-size: 13px;
+$mat-flat-button-color: #ffffff;
+$mat-flat-button-bg: #374fa5;
+$mat-flat-button-disabled-color: #d2d2d2;
+$mat-flat-button-disabled-bg: #e5e5e5;
+$mat-flat-button-box-shadow-color: rgb(120, 174, 249);
+
+//im-attachement
+$im-attachment-border-color: #979797;
+$im-attachment-file-value-font-size: 18px;
+$im-attachment-file-value-color: #8a8a8a;
+$im-attachment-upload-btn-font-size: 13px;
+$im-attachment-upload-btn-color: #ffa783;
+
+
+///main-header
+$main-header-color: #fff;
+$main-header-bg: #1d1f24; 
+
+///landing-deal-header
+$landing-deal-header-box-shadow: rgb(27, 27, 27);
+$landing-deal-header-bg: #fefefe;
+$landing-deal-left-navigation-link-color: #8a8a8a;
+$landing-deal-left-navigation-link-color-hover: #2d2d2d;
+$landing-deal-left-navigation-link-active-border-bg: linear-gradient(to left, #5169d6, #394094);
+$landing-deal-left-navigation-link-active-border-box-shadow: rgb(65, 71, 150);
+
+//create-new-deal-btn
+$create-new-deal-btn-color: #2d2d2d;
+
+///btn
+$btn-color: #fff;
+$btn-box-shadow: rgb(120, 174, 249);
+$btn-box-shadow-hover: rgb(120, 174, 249);
+$btn-bg: linear-gradient(304deg, #0160a2, #444ba5);
+
+///deal-details
+$deal-details-dd-header-bg: #fefefe;
+
+//left-navigation
+$deal-details-left-navigation-dd-title-font-size: 22px;
+$deal-details-left-navigation-dd-title-color: #2d2d2d;
+$deal-details-right-navigation-li-border-color: #c6c6c7;
+$deal-details-right-navigation-link-font-size: 13px;
+$deal-details-right-navigation-link-color: #8a8a8a;
+
+//dd-top-navigation
+$deal-details-dd-top-navigation-box-shadow: rgb(188, 188, 188);
+$deal-details-dd-top-navigation-bg: #ffffff;
+
+//dd-top-left-navigation
+$deal-details-dd-top-navigation-left-navigation-link-font-size: 16px;
+$deal-details-dd-top-navigation-left-navigation-link-color: #8a8a8a;
+$deal-details-dd-top-navigation-left-navigation-link-color-hover: #2d2d2d;
+$deal-details-dd-top-navigation-left-navigation-link-active-border-bg: linear-gradient(to left, #5169d6, #394094);
+$deal-details-dd-top-navigation-left-navigation-link-active-border-box-shadow: rgb(65, 71, 150);
+
+//dd-top-right-navigation
+$deal-details-dd-top-navigation-right-navigation-li-border-color: #c6c6c7;
+
+//dd-request
+$deal-details-dd-request-bg: #fafafa;
+$deal-details-dd-request-content-font-size: 14px;
+$deal-details-dd-request-content-color: #8a8a8a;
+
+//dd-sector-details
+$deal-details-dd-sector-details-bg: #fff;
+$deal-details-dd-sector-details-headerbar-border-color: #e6e6e6;
+$deal-details-dd-sector-details-headerbar-border-title-font-size: 22px;
+$deal-details-dd-sector-details-headerbar-border-title-color: #2d2d2d;
+$deal-details-dd-sector-details-content-font-size: 14px;
+$deal-details-dd-sector-details-content-li-border-color: #e6e6e6;
+$deal-details-dd-sector-details-content-title-color: #8a8a8a;
+$deal-details-dd-sector-details-content-value-color: #2d2d2d;
+
+//dd-panel
+$deal-details-dd-panel-bg: #fff;
+$deal-details-dd-panel-header-font-size: 16px;
+$deal-details-dd-panel-header-color: #2d2d2d;
+$deal-details-dd-panel-header-border-color: #e6e6e6;
+$deal-details-dd-panel-body-font-size: 14px;
+$deal-details-dd-panel-body-card-container-border-color: #e6e6e6;
+$deal-details-dd-panel-body-card-header-color: #2d2d2d;
+$deal-details-dd-panel-body-card-body-color: #8a8a8a;
+$deal-details-dd-panel-divider: #e6e6e6;
+$deal-details-dd-panel-avatar-list-color: #2d2d2d;
+$deal-details-dd-panel-char-description-percentage-color: #2d2d2d;
+$deal-details-dd-panel-char-description-box-bg: #cdd7d6;
+$deal-details-dd-panel-note-font-size: 12px;
+$deal-details-dd-panel-note-color: #8a8a8a;
+$deal-details-dd-panel-specific-list-li-border-color: #e6e6e6;
+$deal-details-dd-panel-specific-list-font-size: 12px;
+$deal-details-dd-panel-specific-list-title-color: #8a8a8a;
+$deal-details-dd-panel-specific-list-value-color: #2d2d2d;
+$deal-details-dd-panel-specific-list-value-font-size: 18px;
+
+//Talent Acquisition Landing Page
+$landing-ta-header-box-shadow:rgb(27, 27, 27);
+$landing-ta-header-bg: #fefefe;
+$landing-ta-left-navlink-color:#8a8a8a;
+$landing-ta-left-navlink-color-hover:#2d2d2d;
+$landing-ta-left-navlink-active-border-box-shadow:rgb(65, 71, 150);
+$landing-ta-left-navlink-active-border-bg:linear-gradient(to left, #5169d6, #394094);
+$create-new-jr-btn-color:#2d2d2d;
+$ta-gray-text-color:#8a8a8a;
+$landing-ta-form-field-input-color: #2d2d2d;

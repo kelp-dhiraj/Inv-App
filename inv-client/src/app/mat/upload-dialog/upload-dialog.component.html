@@ -1,0 +1,66 @@
+<input
+  type="file"
+  #file
+  style="display: none"
+  (change)="onFilesAdded()"
+  [attr.multiple]="data.multi ? 'yes' : null"
+/>
+<div class="container" fxLayout="column" fxLayoutAlign="space-evenly stretch">
+  <mat-dialog-content fxFlex>
+    <div fxLayout="row wrap" fxLayoutAlign="flex-start" class="file-dialog-header">
+        <div fxFlex="0 1 50%">
+            <h1 mat-dialog-title>{{ labels.title }}</h1>
+        </div>
+        <div fxFlex="0 1 50%">    
+          <button
+            [disabled]="addFilesDisabled()"
+            mat-raised-button
+            color="primary"
+            class="add-files-btn"
+            (click)="addFiles()"
+          >
+            {{ labels.addButton }}
+          </button>
+        </div>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="flex-start" class="file-table-header">
+        <div fxFlex="0 1 60%">{{ labels.tableHeaderFiles }}</div>
+        <div fxFlex="0 1 40%">Progress</div>
+    </div>
+    <div *ngIf="files.size == 0" fxLayout="row wrap" fxLayoutAlign="flex-start" class="file-table-blank">
+        <div fxFlex="0 1 100%">{{ labels.noFilesMessage }}</div>
+    </div>
+    <div *ngFor="let file of files" fxLayout="row wrap" fxLayoutAlign="flex-start" class="file-table-row">
+      <div fxFlex="0 1 50%" style="align-self: center;">
+        {{file.name}} ({{KB(file.size)}} KB)
+      </div>
+      <div fxFlex="0 1 10%" style="align-items: center;">
+        <button mat-button mat-icon-button (click)="cancelUpload(file)"
+        *ngIf="!uploadStatus[file['index']] || uploadStatus[file['index']].status != 'complete'"
+        ><mat-icon>cancel</mat-icon></button>
+      </div>
+      <div fxFlex="0 1 40%" style="align-items: center; display: flex">      
+        <mat-progress-bar
+          *ngIf="uploadStatus[file['index']] && uploadStatus[file['index']].status != 'complete'"
+          mode="determinate"
+          [value]="uploadStatus[file['index']]?.percent"
+        ></mat-progress-bar>
+        <div *ngIf="!uploadStatus[file['index']]">Not Uploaded</div>
+        <div *ngIf="uploadStatus[file['index']] && uploadStatus[file['index']].status == 'complete'">Uploaded</div>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <!-- This are the actions of the dialog, containing the primary and the cancel button-->
+  <mat-dialog-actions class="actions">
+    <button *ngIf="showCancelButton" mat-button mat-dialog-close>Cancel</button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="!canBeClosed || files.size == 0"
+      (click)="closeDialog()"
+    >
+      {{primaryButtonText}}
+    </button>
+  </mat-dialog-actions>
+</div>

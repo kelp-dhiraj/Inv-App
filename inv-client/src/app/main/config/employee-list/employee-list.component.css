@@ -1,0 +1,7 @@
+.mat-column-full_name,
+.mat-column-email,
+.mat-column-sup,
+.mat-column-hr,
+.mat-column-is_admin {
+  width: 25%;
+}

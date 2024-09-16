@@ -1,0 +1,128 @@
+.tab-content {
+	padding: 1em 1em;
+}
+.form-group {
+	margin-bottom: 30px;
+}
+.circle-box {
+	display: inline-block;
+	text-align: center;
+	margin: 0 20px;
+	h4 {
+		margin: 5px 0;
+		font-size: 13px;
+	}
+}
+.report-circle,.priority {
+	width: 30px;
+    height: 30px;
+    line-height: 30px;
+    background: orange;
+    border-radius: 50%;
+    color: #FFF;
+    text-align: center;
+    display: inline-block;
+}
+.priority {
+	&.high {
+		background: orange;
+	}
+	&.medium {
+		background: skyblue;
+	}
+	&.low {
+		background: #EEE;
+	}
+}
+.mat-expansion-panel {
+	margin-bottom: 5px;
+}
+.panel-badge {
+	margin-left: 20px;
+    font-size: 12px;
+    background: #374fa5;
+    padding: 5px 20px;
+    border-radius: 30px;
+    color: #FFF;
+}
+.panel-body {
+	border-top: 1px solid #EEE;
+	padding: 10px 0;
+}
+.panel-content {
+	h5 {
+		margin: 0 0 10px;
+    	font-size: 14px;
+	}
+}
+.comment-input {
+	border: none;
+    border-bottom: 1px solid #EEE;
+    resize: none;
+    width: 100%;
+    padding: 10px 0;
+    outline: none;
+    &::placeholder {
+    	font-style: italic;
+    }
+}
+.radio-group {
+	mat-radio-button {
+		margin-right: 3em;
+	}
+}
+.row-group {
+	margin-bottom: 15px;
+    border-bottom: 1px solid #EEE;
+    padding-bottom: 15px;
+}
+.btn-group {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+.padding-tb30 {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+table.detail-table {
+	width: 100%;
+	border-spacing: 0;
+	border:1px solid #EEE;
+	thead > tr > th {
+		text-align: left;
+	    background: #3b3d3f;
+	    color: #FFF;
+	    padding: 8px 10px;
+	}
+	tbody > tr {
+		&:nth-child(even) {
+			background: #EEE;
+		}
+	}
+	tbody > tr > td {
+		padding: 8px 10px;
+		
+	}
+}
+.data-accordion { opacity: 0; transition: opacity 1000ms ease; }
+.data-accordion.appear { opacity: 1}
+
+tr.mat-row {
+  height: 24px;
+  
+}
+tr.mat-header-row {
+  height: 40px;
+  background: #3b3d3f;
+}
+th.mat-header-cell {
+	color: #FFF;
+	padding: 10px 10px;
+}
+.mat-cell { 
+	font-size: 13px;
+	padding: 10px 10px;
+}
+
+
+

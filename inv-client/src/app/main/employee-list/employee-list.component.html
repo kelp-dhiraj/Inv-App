@@ -1,0 +1,29 @@
+<mat-card class="tn-table-card">
+  <app-table-toolbar title="Upload" [buttons]="buttons" [selectedId] = "selectedId" (toolbarAction)="toolbarAction($event)"></app-table-toolbar>
+  <div class="file-upload-result" *ngIf="showUploadResult">
+    File has been uploaded and processed. Please review the below
+    <div style="margin-top: 10px; display: flex">
+      <button mat-raised-button color="basic" *ngIf="rejectedFileId" (click)="dataSvc.downloadFile(rejectedFileId)">DOWNLOAD REJECTED  DATA</button>
+      <button mat-raised-button color="basic" *ngIf="errorFileId" (click)="dataSvc.downloadFile(errorFileId)">DOWNLOAD ERROR DATA</button>
+      <button mat-raised-button color="primary" *ngIf="successFileId" (click)="dataSvc.downloadFile(successFileId)">DOWNLOAD SUCCESSFUL DATA</button>
+      <span style="flex: 1 1 auto">&nbsp;</span>
+      <button mat-raised-button color="accent" (click)="showUploadResult = false">CLOSE</button>
+    </div>
+  </div>
+  <!-- <mat-card-content class="tn-table-card-content" #reportTable>
+    <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container [matColumnDef]="c" *ngFor="let c of columns">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: left"> {{headings[c]}} </th>
+        <td mat-cell *matCellDef="let element"> {{element[c]}} </td>
+      </ng-container>
+     
+      <tr mat-header-row *matHeaderRowDef="columns; sticky: true"></tr>
+      <tr mat-row 
+          *matRowDef="let row; columns: columns;"
+          [ngClass]="{'tn-table-row-highlight': selectedId == row.id}"
+          (click)="highlight(row)"
+      ></tr>
+    </table>
+  </mat-card-content>  -->
+   <!-- <mat-paginator [pageSize]="rowsPerPage" [pageSizeOptions]="[10, 15, 20, 50]"></mat-paginator> -->
+</mat-card>

@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="List Code" disabled autocomplete="off"
+      [(ngModel)]="data.value.list_code"
+    >
+    <mat-error>List Code is required</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Lookup Value" required autocomplete="off"
+      [(ngModel)]="data.value.lookup_value" 
+      (change)="lookupValueUpdated()" 
+    >
+    <mat-error>Lookup Value is required</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Lookup Code" required autocomplete="off"
+      [disabled]="data.action=='edit'"
+      [ngModel]="data.value.lookup_code | uppercase" 
+      (ngModelChange)="data.value.lookup_code = $event"
+    >
+    <mat-error>Lookup Code is required</mat-error>
+  </mat-form-field>
+
+  <mat-checkbox color="primary" [(ngModel)]="data.value.enabled"> Enabled </mat-checkbox>
+  <mat-form-field>
+    <input matInput placeholder="Description" autocomplete="off"
+      [(ngModel)]="data.value.lookup_description"
+    >
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Display Order" autocomplete="off"
+      [(ngModel)]="data.value.display_order"
+    >
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data" [disabled]="!valid">Ok</button>
+  <button mat-raised-button color="basic" (click)="onNoClick()">Cancel</button>
+</div>

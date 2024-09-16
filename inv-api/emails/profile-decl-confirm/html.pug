@@ -1,0 +1,48 @@
+html
+
+  head
+
+    style.
+      .container { width: 400px; }
+      table { width: 100%; }
+      table, tr, td { border: 1px solid #ccc; border-collapse: collapse }
+      .heading { background: #f5f5f5 }
+
+  body
+
+    img(src=`https://truenorth.co.in/images/logo.png` alt="truenorth logo")
+
+    p Hi #{name},
+
+    p You have declared a relatives and holdings details change. Please find below the details of the declaration.
+
+    div.container
+
+      each d, i in data
+
+        div
+
+          p
+            | Name: <b>#{d.name}</b> 
+            | !{d.relation  != '' ? 'Relation: <b>' + d.relation + '</b>' : ''} 
+            | !{d.dependent != '' ? 'Dependent: <b>Yes</b>' : ''} 
+
+          if (d.holdings.length>0)
+
+            b Holdings
+            
+            table
+              tr.heading
+                td Scrip
+                td Start
+                td End
+              each h, j in d.holdings
+                tr
+                  td #{h.scrip}
+                  td #{h.start}
+                  td #{h.end}
+          else
+            p #{d.noHoldings}
+    
+    p PST Policy Workflow
+    p Note: This is a system generated email

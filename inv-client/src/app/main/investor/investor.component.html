@@ -1,0 +1,221 @@
+<div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutGap.lt-sm="0px" fxLayoutAlign="flex-start" style="align-items: center;">
+  <div fxFlex="0 0 calc(75% - 210px)" fxLayoutGap="20px" style="align-items: center;">
+    <mat-form-field style="width: calc(100% - 140px)">
+      <mat-label>Investor Name</mat-label>                 
+      <input matInput placeholder="Type or doubleclick to show list"
+        [(ngModel)]="investorId" 
+        [matAutocomplete]="investorNameAuto" 
+        (keyup)="filterInvestorNames()" 
+        (change)="investorNameChange()"
+      >
+      <mat-autocomplete #investorNameAuto="matAutocomplete" 
+        [displayWith]="investorNameDisplayFn.bind(this)"
+        (optionSelected)="investorNameChange()"
+      >
+        <mat-option *ngFor="let item of filteredInvestorNames" [value]="item.id">{{item.investor_name}}</mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <div fxFlex="1 1 100px" style="height: 88px; display: flex; align-items: center;">
+      <button mat-button class="btn mat-flat-button" (click)="getData()">GET DATA</button>
+    </div>
+  </div>
+  <div fxFlex="0 0 calc(25% + 190px)" fxLayoutGap="20px" style="display:flex;align-items: center;" *ngIf="investor">
+    <mat-form-field style="width: 100%">
+      <mat-label>Fund</mat-label>                 
+      <input matInput [(ngModel)]="investor.fund.lookup_value" readonly>
+    </mat-form-field>
+  </div>
+</div>
+<div style="margin-bottom: 20px" *ngIf="investor">{{investor.primary_office_city}}, {{investor.region}} <!--{{investor.category_code}}--></div>
+<mat-accordion *ngIf="investor" style="margin-top: 20px">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title style="align-items: center;">
+        Relationship Score <span class="panel-badge">Total Score: {{investorRelationshipScore}}%</span>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="panel-body">
+      <mat-form-field style="width: 300px">
+        <mat-label>Stage</mat-label>                 
+        <input matInput placeholder="Enter Ticket Size in Millions" [value]="investorStageCode" autocomplete="off" readonly
+        >
+      </mat-form-field>
+      <h3>Profiling: </h3>
+      <mat-form-field style="width: 300px">
+        <mat-label>Ticket Size (M$)</mat-label>                 
+        <input matInput placeholder="Enter Ticket Size in Million $" [(ngModel)]="investor.ticket_size" autocomplete="off" (ngModelChange)="dataChanged()"
+        >
+      </mat-form-field>
+      <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutGap.lt-sm="10px">
+        <div fxFlex="1 1 calc(50% - 20px)">Share of Wallet</div>
+        <div fxFlex="1 1 50%">
+          <mat-radio-group aria-label="Select an option" class="radio-group" [(ngModel)]="investor.share_of_wallet_code" (ngModelChange)="dataChanged()"
+            fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutGap.lt-sm="10px"
+          >
+            <mat-radio-button *ngFor="let item of shareOfWalletCodes$ | async" [value]="item.lookup_code" style="min-width: 80px; ">{{item.lookup_value}}</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+      <div style="margin-bottom: 20px">
+        <mat-form-field style="width: 100%">
+          <textarea matInput style="min-height: 20px" placeholder="Comment" [(ngModel)]="investor.share_of_wallet_comment" cdkTextareaAutosize (ngModelChange)="dataChanged()"></textarea>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutGap.lt-sm="10px">
+        <div fxFlex="1 1 calc(50% - 20px)">Investment Performance</div>
+        <div fxFlex="1 1 50%">
+          <mat-radio-group aria-label="Select an option" class="radio-group" [(ngModel)]="investor.investment_performance_code" (ngModelChange)="dataChanged()" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutGap.lt-sm="10px">
+            <mat-radio-button *ngFor="let item of investmentPerformanceCodes$ | async" [value]="item.lookup_code" style="min-width: 80px; ">{{item.lookup_value}}</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+      <div style="margin-bottom: 20px">
+        <mat-form-field style="width: 100%">
+          <textarea matInput style="min-height: 20px"  placeholder="Comment" [(ngModel)]="investor.investment_performance_comment" cdkTextareaAutosize (ngModelChange)="dataChanged()"></textarea>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutGap.lt-sm="10px">
+        <div fxFlex="1 1 calc(50% - 20px)">Working Level Support</div>
+        <div fxFlex="1 1 50%">
+          <mat-radio-group aria-label="Select an option" class="radio-group" [(ngModel)]="investor.working_level_support_code" (ngModelChange)="dataChanged()" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutGap.lt-sm="10px">
+            <mat-radio-button *ngFor="let item of workingLevelSupportCodes$ | async" [value]="item.lookup_code" style="min-width: 80px; ">{{item.lookup_value}}</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+      <div style="margin-bottom: 20px">
+        <mat-form-field style="width: 100%">
+          <textarea matInput style="min-height: 20px"  placeholder="Comment" [(ngModel)]="investor.working_level_support_comment" cdkTextareaAutosize (ngModelChange)="dataChanged()"></textarea>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutGap.lt-sm="10px">
+        <div fxFlex="1 1 calc(50% - 20px)">Senior Level Connect</div>
+        <div fxFlex="1 1 50%">
+          <mat-radio-group aria-label="Select an option" class="radio-group" [(ngModel)]="investor.senior_level_connect_code" (ngModelChange)="dataChanged()" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutGap.lt-sm="10px">
+            <mat-radio-button *ngFor="let item of seniorLevelConnectCodes$ | async" [value]="item.lookup_code" style="min-width: 80px; ">{{item.lookup_value}}</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+      <div style="margin-bottom: 20px">
+        <mat-form-field style="width: 100%">
+          <textarea matInput style="min-height: 20px"  placeholder="Comment" [(ngModel)]="investor.senior_level_connect_comment" cdkTextareaAutosize (ngModelChange)="dataChanged()"></textarea>
+        </mat-form-field>
+      </div>
+      <!-- <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutGap.lt-sm="10px">
+        <div fxFlex="1 1 calc(50% - 20px)">Subjective Factor</div>
+        <div fxFlex="1 1 50%">
+          <mat-radio-group aria-label="Select an option" class="radio-group" [(ngModel)]="investor.subjective_factor_code" (ngModelChange)="dataChanged()" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutGap.lt-sm="10px">
+            <mat-radio-button *ngFor="let item of subjectiveFactorCodes$ | async" [value]="item.lookup_code" style="min-width: 80px; ">{{item.lookup_value}}</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div> 
+      <div style="margin-bottom: 20px">
+        <mat-form-field style="width: 100%">
+          <textarea matInput style="min-height: 20px"  placeholder="Comment" [(ngModel)]="investor.subjective_factor_comment" cdkTextareaAutosize (ngModelChange)="dataChanged()"></textarea>
+        </mat-form-field>
+      </div> -->
+      <div style="display: flex; justify-content: flex-end;">
+        <button mat-button class="btn mat-flat-button" (click)="saveInvestor()">SUBMIT</button>
+      </div>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Interactions
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="panel-body">
+      <div fxHide.xs *ngIf="investor.interactions.length > 0">
+        <table mat-table [dataSource]="interactionDataSource" style="width: 100%">
+          <ng-container matColumnDef="int_type">
+            <th mat-header-cell *matHeaderCellDef>Interaction Type</th>
+            <td mat-cell *matCellDef="let element">{{element.int_type.lookup_value}}</td>
+          </ng-container>
+          <ng-container matColumnDef="interaction_date">
+            <th mat-header-cell *matHeaderCellDef>Interaction Date</th>
+            <td mat-cell *matCellDef="let element">{{element.interaction_date | date:'d MMM y'}}</td>
+          </ng-container>
+          <ng-container matColumnDef="comments">
+            <th mat-header-cell *matHeaderCellDef>Comments</th>
+            <td mat-cell *matCellDef="let element">{{element.comments}}</td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="interactionColumns;"></tr>
+          <tr mat-row *matRowDef="let row; columns: interactionColumns;"></tr>
+        </table>
+      </div>
+      <mat-accordion fxHide.gt-xs>
+        <mat-expansion-panel *ngFor="let item of interactionDataSource.data">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <div style="flex: 1 1 auto">{{item.int_type.lookup_value}}</div> 
+              <div style="flex: 0 0 auto; font-size: 10px">{{item.interaction_date | date:'d MMM y'}}</div>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          {{item.comments}}
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <div style="display: flex; justify-content: flex-end; margin-bottom: 20px" *ngIf="investor.interactions.length > 3">
+        <button mat-button color="primary" (click)="showAllClick()">{{showAllFlag ? 'Show Last 3 Interactions' : 'Show All Interactions' }}</button>
+      </div>
+      <mat-form-field style="width: 200px; margin-top: 10px">
+        <mat-label>Interaction Type</mat-label>
+        <mat-select [(ngModel)]="interactionTypeCode" (ngModelChange)="dataChangedInteraction()">
+          <mat-option *ngFor="let item of interactionTypeCodes$ | async" [value]="item.lookup_code">{{item.lookup_value}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div style="margin-bottom: 20px">
+        <mat-form-field style="width: 100%">
+          <textarea matInput style="min-height: 20px" placeholder="Comment" [(ngModel)]="interactionComment" cdkTextareaAutosize (ngModelChange)="dataChangedInteraction()"></textarea>
+        </mat-form-field>
+      </div>
+      <div style="display: flex; justify-content: flex-end; margin-bottom: 20px">
+        <button mat-button class="btn mat-flat-button" (click)="saveInteraction()">SUBMIT</button>
+      </div>
+      <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutGap.lt-sm="10px">
+        <div fxFlex="0 0 calc(50% - 10px)">
+          <div style="font-weight: bold">IR Team</div>
+          <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutGap.lt-sm="10px">
+            <div fxFlex="0 0 50%" style="align-items: center" *ngFor="let s of interactionSummary['IR']">
+              <span class="panel-badge" style="margin: 5px 10px 5px 0px">{{s.value}}</span>
+              <span fxFlex="1 1 auto">{{s.label}}</span> 
+            </div>
+          </div>
+        </div>
+        <div fxFlex="0 0 calc(50% - 10px)">
+          <div style="font-weight: bold">Deal Team</div>
+          <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutGap.lt-sm="10px">
+            <div fxFlex="0 0 50%" style="align-items: center" *ngFor="let s of interactionSummary['DT']">
+              <span class="panel-badge" style="margin: 5px 10px 5px 0px">{{s.value}}</span>
+              <span fxFlex="1 1 auto">{{s.label}}</span> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Fund Raise
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="panel-body">
+      <mat-form-field style="width: 300px">
+        <mat-label>Fund Raise Stage</mat-label>
+        <mat-select [(ngModel)]="investor.fund_raise_stage_code" (ngModelChange)="dataChanged()">
+          <mat-option *ngFor="let item of fundRaiseStageCodes$ | async" [value]="item.lookup_code">{{item.lookup_value}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div style="margin-bottom: 20px">
+        <mat-form-field style="width: 100%">
+          <textarea matInput style="min-height: 20px"  placeholder="Comment" [(ngModel)]="investor.fund_raise_stage_comment" cdkTextareaAutosize (ngModelChange)="dataChanged()"></textarea>
+        </mat-form-field>
+      </div>
+      <div style="display: flex; justify-content: flex-end;">
+        <button mat-button class="btn mat-flat-button" (click)="saveInvestor()">SUBMIT</button>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+

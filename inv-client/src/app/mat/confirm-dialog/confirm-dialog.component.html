@@ -1,0 +1,29 @@
+<!--h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content innerHTML="{{ data.message }}">
+  
+</div>
+<div mat-dialog-actions style="padding: 20px 0px">
+  <button mat-raised-button color="basic" (click)="onNoClick()" [attr.cdkFocusInitial]="data.default == 'No' ? '': null" innerHTML="{{data.noLabel}}"></button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="true" [attr.cdkFocusInitial]="data.default == 'Yes' ? '': null" innerHTML="{{data.yesLabel}}"></button>
+</div-->
+
+<div mat-dialog-title style="display: flex; justify-content: center; padding: 10px 0px;">
+  <span class="text-16 text-black text-bold" innerHTML="{{data.title}}"></span>
+</div>
+<div mat-dialog-content >
+  <div class="text-center" style="display: flex; justify-content: center; padding: 30px" innerHTML="{{ data.message }}"></div>
+  <mat-form-field style="width: 100%" *ngIf="data.feedback">
+    <mat-label>{{data.feedback.label}}</mat-label>
+    <input matInput [(ngModel)]="feedback" [placeholder]="data.feedback.placeholder" autocomplete="off" maxlength="{{data.feedback.max}}" [required]="data.feedback.required">
+    <mat-error>{{data.feedback.label}} Required</mat-error>
+    <pa-char-count [max]="data.feedback.max" [value]="feedback"></pa-char-count>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions style="display: block;">
+  <div style="display: flex; justify-content: center; padding: 10px 20px">
+    <button mat-raised-button class="rounded-button primary" [mat-dialog-close]="data.feedback ? {flag: true, feedback: feedback}: true" [attr.cdkFocusInitial]="data.default == 'Yes' ? '': null" innerHTML="{{data.yesLabel}}"></button>
+  </div>
+  <div style="display: flex; justify-content: center; padding: 10px 20px">
+    <button  mat-button class="text-grey"(click)="onNoClick()" [attr.cdkFocusInitial]="data.default == 'No' ? '': null" innerHTML="{{data.noLabel}}"></button>
+  </div>
+</div>

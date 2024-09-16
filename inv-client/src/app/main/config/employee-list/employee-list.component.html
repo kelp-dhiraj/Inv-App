@@ -1,0 +1,35 @@
+<mat-card class="tn-table-card">
+  <app-table-toolbar [title]="'Persons'" [buttons]="buttons" [selectedId] = "selectedId" (toolbarAction)="toolbarAction($event)"></app-table-toolbar>
+  <mat-card-content class="tn-table-card-content">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="full_name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.full_name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+      <ng-container matColumnDef="sup">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Supervisor </th>
+        <td mat-cell *matCellDef="let element"> {{element.sup}} </td>
+      </ng-container>
+      <ng-container matColumnDef="hr">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> HR Manager </th>
+        <td mat-cell *matCellDef="let element"> {{element.hr}} </td>
+      </ng-container>
+      <ng-container matColumnDef="is_admin">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Admin? </th>
+        <td mat-cell *matCellDef="let element" ><mat-checkbox color="primary" [checked]="element.is_admin" disabled></mat-checkbox></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columns; sticky: true"></tr>
+      <tr mat-row 
+          *matRowDef="let row; columns: columns;"
+          [ngClass]="{'tn-table-row-highlight': selectedId == row.id}"
+          (click)="highlight(row)"
+      ></tr>
+    </table>
+  </mat-card-content>
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[10, 20, 50]"></mat-paginator>
+</mat-card>

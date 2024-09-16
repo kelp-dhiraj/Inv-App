@@ -1,0 +1,19 @@
+const corsOrigins   = ['http://localhost:4200', 'http://localhost:4300', 'https://inv-int.tnkelp.com'];
+const apiServerPort  = 3500;
+const logDirectory = '/data/tnwork/dev/inv/inv-api/logs/';
+const uploadDirectory = './upload/';
+const csvDirectory = '/data/tnwork/dev/inv/inv-api/csv-files/';
+const hostForActivation = 'https://inv-dev.tnkelp.com';
+const hashSecret = 'sdjhgsdjgdsjfgsjdg';
+const tokenSecret = 'dsdsdssd-aiw-fsddd-shared-dfgddfd-sign-sdsdssfg-secret';
+const pwdHashSecret = 'sdjhgsdjgdsjfgsjdg'; 
+
+module.exports.apiServerPort = apiServerPort;
+module.exports.corsOrigins = corsOrigins;
+module.exports.logDirectory = logDirectory;
+module.exports.uploadDirectory = uploadDirectory;
+module.exports.csvDirectory = csvDirectory;
+module.exports.hostForActivation = hostForActivation;
+module.exports.hwdHashSecret = hashSecret;
+module.exports.tokenSecret = tokenSecret;
+module.exports.pwdHashSecret = pwdHashSecret;
