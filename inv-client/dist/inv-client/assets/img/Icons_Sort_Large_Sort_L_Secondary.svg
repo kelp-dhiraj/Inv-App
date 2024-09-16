@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+    <rect width="1.212" height="12.121" x="14.121" y="6" fill="#9A9A9A" stroke="#9A9A9A" stroke-width=".1" rx=".606" transform="rotate(90 14.121 6)"/>
+    <rect width="1.212" height="10.909" x="12.909" y="9.636" fill="#9A9A9A" stroke="#9A9A9A" stroke-width=".1" rx=".606" transform="rotate(90 12.91 9.636)"/>
+    <rect width="1.212" height="9.091" x="11.091" y="13.273" fill="#9A9A9A" stroke="#9A9A9A" stroke-width=".1" rx=".606" transform="rotate(90 11.09 13.273)"/>
+    <path fill="#9A9A9A" stroke="#9A9A9A" stroke-width=".1" d="M8.667 16.91a.606.606 0 0 1 0 1.211H2.606a.606.606 0 1 1 0-1.212h6.06zM15.554 15.372a.606.606 0 0 1 .857-.857l2.571 2.571a.606.606 0 1 1-.857.858l-2.571-2.572z"/>
+    <path fill="#9A9A9A" stroke="#9A9A9A" stroke-width=".1" d="M20.697 14.515a.606.606 0 0 1 .857.857l-2.572 2.571a.606.606 0 1 1-.857-.857l2.572-2.571z"/>
+    <path fill="#9A9A9A" stroke="#9A9A9A" stroke-width=".1" d="M17.948 6.606a.606.606 0 1 1 1.212 0v10.91a.606.606 0 0 1-1.212 0V6.605z"/>
+</svg>
