@@ -35,10 +35,9 @@ export class GlobalDataService {
   ) { }
 
   handleError(error: any): any {
-
     this.snackBar.open(error.message, 'Ok')
-    if (!this.adalService.userInfo.authenticated) this.router.navigate(['/login'])
-    return throwError(error)
+    // if (!this.adalService.userInfo.authenticated) this.router.navigate(['/login'])
+    // return throwError(error)
 
   }
 
