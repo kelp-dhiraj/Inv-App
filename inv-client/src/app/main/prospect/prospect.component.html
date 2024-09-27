@@ -81,7 +81,7 @@
         </mat-form-field>
       </div>
       <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutGap.lt-sm="10px">
-        <div fxFlex="1 1 calc(50% - 20px)">Senior Advocate TN Champion</div>
+        <div fxFlex="1 1 calc(50% - 20px)">Senior Advocate PAG Champion</div>
         <div fxFlex="1 1 50%">
           <mat-radio-group aria-label="Select an option" class="radio-group" [(ngModel)]="prospect.senior_advocate_code" (ngModelChange)="dataChanged()" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutGap.lt-sm="10px">
             <mat-radio-button *ngFor="let item of seniorAdvocateCodes$ | async" [value]="item.lookup_code" style="min-width: 80px; ">{{item.lookup_value}}</mat-radio-button>
@@ -94,7 +94,7 @@
         </mat-form-field>
       </div>
       <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutGap.lt-sm="10px">
-        <div fxFlex="1 1 calc(50% - 20px)">TN Track record bias</div>
+        <div fxFlex="1 1 calc(50% - 20px)">PAG Track record bias</div>
         <div fxFlex="1 1 50%">
           <mat-radio-group aria-label="Select an option" class="radio-group" [(ngModel)]="prospect.tn_track_record_bias_code" (ngModelChange)="dataChanged()" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutGap.lt-sm="10px">
             <mat-radio-button *ngFor="let item of tnTrackRecordBiasCodes$ | async" [value]="item.lookup_code" style="min-width: 80px; ">{{item.lookup_value}}</mat-radio-button>
